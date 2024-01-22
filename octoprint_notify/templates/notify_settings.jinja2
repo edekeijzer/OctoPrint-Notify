@@ -1,0 +1,15 @@
+<form class="form-horizontal">
+    <h4>General</h4>
+    <div class="control-group">
+        <label class="control-label">Plugin</label>
+        <div class="controls">
+            <select data-bind="value: settings.plugins.notify.plugin">
+                <option value="" disabled selected>Choose...</option>
+                {% for item in plugin_notify_availablePlugins %}
+                <option value="{{ item['pluginIdentifier'] }}">{{ item['displayName'] }}</option>
+                {% endfor %}
+                <option value="_GET_MORE_">Get More...</option>
+            </select> <a href="javascript:void(0)" data-bind="click: function() { settingsViewModel.selectTab('#settings_plugin_' + settings.plugins.notify.plugin()) }, visible: subPluginTabExists(settings.plugins.notify.plugin())" style="display: none">Settings</a>
+        </div>
+    </div>
+</form>
